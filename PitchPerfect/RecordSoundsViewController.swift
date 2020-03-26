@@ -28,7 +28,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     }
 
     @IBAction func recordAudio(_ sender: Any) {
-        print ("botao record apertado");
         recordLabel.text = "Gravando..."
         stopRecordingButton.isEnabled = true
         recordButton.isEnabled = false
@@ -61,7 +60,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     //Essa função é a que sabe exatamente quando o arquivo de audio terminou de ser gravado fisicamente no app.
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if (flag) {
-            print(audioRecorder.url)
             performSegue(withIdentifier: "stopRecording", sender: audioRecorder.url)
         } else {
             print("Erro ao gravar o audio")
